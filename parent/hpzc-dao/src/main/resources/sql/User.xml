@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.org.cbs.dao.UserDao">
+	<resultMap id="BaseResultMap" type="com.org.cbs.model.User">
+		<id column="id" property="id" jdbcType="INTEGER" />
+			<result column="name" property="name" jdbcType="VARCHAR" />
+			<result column="age" property="age" jdbcType="INTEGER" />
+	</resultMap>
+	<select id="selectById" resultMap="BaseResultMap">
+		select * from User
+	</select>
+	<insert id="insert" parameterType="com.org.cbs.model.User">
+	   insert into User (name,age) values (#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER})
+	</insert>
+
+</mapper>
